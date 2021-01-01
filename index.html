@@ -1,0 +1,644 @@
+
+        <!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <meta name='viewport' 
+     content='width=device-width, initial-scale=0.3489, maximum-scale=1.0, 
+     user-scalable=0' >
+    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-auth.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-database.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   
+     
+     
+     
+     <script src="https://cdn.jsdelivr.net/npm/tronweb@3.0.0/dist/TronWeb.js"></script>
+     <script >const HttpProvider = TronWeb.providers.HttpProvider;
+     const fullNode = new HttpProvider("https://api.trongrid.io");
+     const solidityNode = new HttpProvider("https://api.trongrid.io");
+     const eventServer = new HttpProvider("https://api.trongrid.io");
+     const privateKey = "2c1c8f8b22bdba7ad1d571c0847c46bfdfd9d02b2083e4ec9c3d3203987ef9b5";
+     const tronWeb = new TronWeb(fullNode, solidityNode, eventServer, privateKey)</script>
+     
+   <script>
+   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+   const firebaseConfig = {
+   apiKey: "AIzaSyBidAoTB11nAmdb--Te58p1-l86-luHccQ",
+   authDomain: "hugerdrop.firebaseapp.com",
+   databaseURL: "https://hugerdrop-default-rtdb.firebaseio.com",
+   projectId: "hugerdrop",
+   storageBucket: "hugerdrop.appspot.com",
+   messagingSenderId: "141696705244",
+   appId: "1:141696705244:web:cb0019c0218191d10c8a19",
+   measurementId: "G-JH824H3ERG"
+   };
+   firebase.initializeApp(firebaseConfig);
+
+
+</script>
+
+   
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Heebo&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Andika+New+Basic&family=Piazzolla&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Andika+New+Basic&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Bitter&family=Roboto&family=Russo+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto&family=Russo+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Andika+New+Basic&display=swap" rel="stylesheet">
+        <title>Page Title</title>
+        <link href="HugerWallet.css" rel="stylesheet">
+        <link rel="stylesheet" href="HugerWallet2.css">
+   
+        <script src="HugerWallet.js">
+        
+        </script>
+    <script type="text/javascript" src="https://tiiny.host/ad-script.js"></script></head>
+    <body onload=start()>
+    <div id="load-page">
+    <div id="load">
+        
+        <img id="load-img" src="https://i.postimg.cc/0jZSQxYR/Logopit-1608387679733.png">
+        
+        <b id="load-text">Wallet</b>
+        
+    </div>
+    </div>
+    
+    <div id="alert-box">
+    
+    <i class="material-icons" id="alert-i">check_circle</i>
+    <b id="alert-h">Invalid</b>
+    <b id="alert-t">Start using the best</b>
+    <div id="alert-btn" >Ok</div>
+    
+    
+    
+    
+    
+    
+    
+    
+    </div>
+    <textarea id="universal-copy"></textarea>
+    
+    
+    
+        <div id="All-pages">
+        
+        
+        <div id="secure-page">
+        <div id="join-page">
+        
+        <img id="join-img" src='https://i.postimg.cc/j54Rf4MP/IMG-20201219-204912-135.jpg'>
+         
+        
+        
+        <b id="join-text">Secure</br> with private keys</b>
+        
+        <div id="join-divider"></div>
+        
+    <div id="create-btn" onclick=create()> Create Wallet<i class="material-icons" id="add-icon">add</i></div>
+    <b id="import-text" onclick=imported()>Import</b>
+        
+        
+        
+        
+        
+        
+        
+        
+        </div>
+        <div id="key-page">
+        
+        <img id="key-img" src="https://i.postimg.cc/QC3XznyF/secure.png">
+    <b id="key-text">Keep Private</b>
+        
+        <div id="key-divider"></div>
+        <div id="keys"></div>
+        <b id="keys-text">Private keys</b>
+        <textarea id="keys2"  ></textarea>
+        <b id="keys-bottom"> Click on keys to copy</b>
+        <i id="keys-bottom-i" class="material-icons">touch_app</i>
+        <i id="keys-next" class="material-icons" onclick=imported()>trending_flat</i>
+        
+        
+        
+        
+        
+        
+        
+        </div>
+        
+        <div id="import-page">
+        
+        <img id="import-img" src="https://i.postimg.cc/pVw14MHy/0d475b617d01a1be44b71cb894fdcc47.jpg">
+        <b id="importH-text">Start Importing</b>
+        
+        <div id="import-divider"></div>
+        <input id="import" maxlength="65" type="text"></input>
+        <b id="import2-text">Enter keys</b>
+     
+        <b id="import-bottom">Enter private keys</b>
+        <i id="import-bottom-i" class="material-icons">touch_app</i>
+        <i id="import-next" class="material-icons" onclick=opened()>trending_flat</i>
+        
+        
+        
+        
+        
+        
+        
+        </div>
+        </div>
+        
+        <div id="wallet-all">
+        
+        <div id="wallet-page" style="display:none">
+        <img id="wallet-page-bg" src="https://i.postimg.cc/d3ZYJs9R/Logopit-1608113095798.png">
+        <div id="wallet-send" onclick=SendTop()>Send</div>
+        <div id="wallet-receive" onclick=receive()>Receive</div>
+        <div id="wallet-buy">Buy</div>
+        
+        <i class="material-icons" id="addMore" onclick=addMT()>crop_free</i>
+        <b id="wallet-value">0.00 USD</b>
+        <b id="wallet-value-t">Tokens</b>
+        <b id="wallet-value-t2">2 supported</b>
+        <div id="token-1-box" onclick=action()> 
+        
+        <img id="token-1-logo" src="https://i.ibb.co/f0Sf99r/Logopit-1606069190504.png" >
+        <b id="token-1-name"> TRX </b>
+        <b id="token-1-fullname">Tron</b>
+        <i class="material-icons" id="token-1-i">check_circle</i>
+        <b id="token-1-amount"> 0.00</b>
+        <b id="token-1-ex">$0.00</b>
+        
+        
+        </div>
+        
+        <div id="token-2-box" onclick=action2()> 
+        
+        <img id="token-2-logo" src="https://i.postimg.cc/YS4Qt4hB/Logopit-1607942865519.png" >
+        <b id="token-2-name">HS</b>
+        <b id="token-1-fullname">HugerSwap</b>
+        <i class="material-icons" id="token-2-i">check_circle</i>
+        <b id="token-2-amount"> 0.00</b>
+        <b id="token-2-ex">$0.00</b>
+        
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        </div>
+        <div id="bottom-box">
+        <i class="material-icons" id="wallet-b-box-i1" onclick=items(1,2,3,4)>dashboard</i>
+        <i class="material-icons" id="wallet-b-box-i2" onclick=items(2,1,3,4)>cloud</i>
+        <i class="material-icons" id="wallet-b-box-i3" onclick=items(3,2,1,4)>swap_horiz</i>
+        <i class="material-icons" id="wallet-b-box-i4" onclick=items(4,2,3,1)>settings</i>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        <div id="select-page">
+        <div id="select-top">
+        <i class="material-icons" id="select-i" onclick=back("select2-page","select-page")>keyboard_backspace</i>
+        <b id="select-top-t"> Select method </b>
+        </div>
+        
+        <div id="send" onclick=send()>
+          <i class="material-icons" id="send-i">functions</i>
+          <b id="send-t"> Send </b>
+        </div>
+        <div id="receive" onclick=receive()>
+        <b id="receive-t"> Receive</b>
+                  <i class="material-icons" id="receive-i">bubble_chart</i>
+        </div>
+        </div>
+        
+        
+        
+        
+        <div id="select2-page">
+        <div id="select2-top">
+        <i class="material-icons" id="select2-i" onclick=back("select2-page","select-page")>keyboard_backspace</i>
+        <b id="select2-top-t"> Select method </b>
+        </div>
+        
+        <div id="send2" onclick=send2()>
+        <i class="material-icons" id="send2-i">functions</i>
+        <b id="send2-t"> Send </b>
+        </div>
+        <div id="receive2" onclick=receive()>
+        <b id="receive2-t"> Receive</b>
+        <i class="material-icons" id="receive2-i">bubble_chart</i>
+        </div>
+        </div>
+      
+        
+        
+        
+        
+      
+      
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+       
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div id="send-page">
+        <img id="send-img" src="https://i.postimg.cc/FH8cjbPz/Logopit-1609073483271.png">
+        <div id="send-top">
+        <i class="material-icons" id="send-i2" onclick=back("send-page","send2-page")>keyboard_backspace</i>
+        <b id="send-top-t">Send Tron </b>
+        </div>
+        
+       <input id="recept" maxlength="35" type="text"></input>
+       <b id="recept-t">Input Address</b>
+       <input type="number" id="send-number" maxlength=10 ></input>
+       <b id="send-number-t">Input Amount </b>
+       <div id="max-box" onclick=max()>  Max </div>
+       <div id="send-btn" onclick=sendC()> Send</div>
+        
+        </div>
+       
+       
+       
+       
+       <div id="send2-page">
+       <img id="send2-img" src="https://i.postimg.cc/FH8cjbPz/Logopit-1609073483271.png">
+       <div id="send2-top">
+       <i class="material-icons" id="send2-i2" onclick=back("send2-page","send-page")>keyboard_backspace</i>
+       <b id="send2-top-t">Send HugerSwap </b>
+       </div>
+       
+       <input id="recept2" maxlength="35" type="text"></input>
+       <b id="recept2-t">Input Address</b>
+       <input type="number" id="send2-number" maxlength=10 ></input>
+       <b id="send2-number-t">Input Amount </b>
+       <div id="max2-box" onclick=max2()>  Max </div>
+       <div id="send2-btn" onclick=sendC2()> Send</div>
+       
+       </div>
+       <div id="receive-page">
+       				<div id="receive-page-top">
+       <i class="material-icons" id="receive-page-top-i" onclick=back2("receive-page","select-page","select2-page")>keyboard_backspace</i>
+       <b id="receive-page-top-t">Receive Assets</b>
+       </div>
+       				<div id="receive-page-box">  
+       					<img src="https://i.postimg.cc/nhZmwFbJ/December27-014110-PM.png" id="receive-page-img">
+       							<b id="receive-page-adrs">TYHKiuwnQykKpfXB1Xx9vASZck8MVGHGuH</b>
+       				</div>
+       <div id="receive-page-btn" onclick=copyAdrs()>Copy Public Address</div>
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+   
+   
+    
+     </div>
+    
+       </div>
+       
+       
+       <div id="cloud-page">
+       <div id="cloud-top">
+       <b id="cloud-t"> Cloud Tools</b>
+     <div id="cloud-top-line"></div>
+          
+       </div>
+       
+       
+       
+       
+      <div id="cloud-logs" >
+      
+      
+      
+      
+     
+       <i id="c-l-l" class="material-icons" onclick=cloudC()>chevron_right</i>
+       <img id="c-l-1" src="https://i.postimg.cc/Vk51pkWF/Logopit-1608972078759.png">
+       <img id="c-l-2" src="https://i.postimg.cc/761tyCh4/Logopit-1608752838212.png">
+       </div>
+       
+       <b id="cloud-b-t"> Cloud Update</b>
+       <div id="cloud-body-line"></div>
+       
+      <!-- <img id="rate" src="https://i.postimg.cc/Bv4hsTLv/Logopit-1608753992024.png">-->
+      <b id="cloud-rt">Pair</b>
+      <b id="cloud-rt2">Rate </b>
+      <b id="cloud-rt3">24H change</b>
+      
+      <b id="cloud-rate-1">HS</b>
+      <b id="cloud-rate-2">/TRX</b>
+      <b id="cloud-rate-3">100</b>
+      <b id="cloud-rate-4">100</b>
+      <b id="cloud-rate-5">0.00%</b>
+      <div id="cloud-rate-box"></div>
+      
+      
+      
+       <b id="cloud-bt-t"> Cloud Market</b>
+       <div id="cloud-bottom-line"></div>
+       
+       <img id="cloud-market" src="https://i.postimg.cc/ZK1bfR9H/Logopit-1608220708786.jpg">
+       
+       </div>
+       
+    <div id="wall-pass-box">
+    				<b id="wall-pass-top-t">Enter Password</b>
+       
+       
+       <div id="wall-pass-top-line"></div>
+       <b id="wall-pass-pass-t">Enter your password</b>
+    				
+    				<div id="wall-pass-btn" onclick=setPass2()>Done</div>
+    				  <input type="password" id="wall-pass-pass">
+    </div>   
+    
+    
+       
+       
+       
+       
+       
+       <div id="setting-page">
+      <div id="setting-top">
+      				<b id="setting-top-t">Setting</b>
+      </div>
+       
+       <div id="setting-set-box">
+       <b id="setting-set-top-t">Add Password</b>
+       <i class="material-icons" id="setting-set-i" onclick=setEnd()>close</i>
+       <div id="setting-set-top-line"></div>
+       <b id="setting-set-pass-t">Enter password</b>
+       <b id="setting-set-pass-t2"> Enter confirm password</b>
+       <input type="password" id="setting-set-pass">
+       <input type="password" id="setting-set-pass2">
+       <div id="setting-set-btn" onclick=setPass()>Done</div>
+       
+       
+       
+       </div>
+       <div id="setting-box-1" onclick=addMore()>
+       				<i class="material-icons" id="setting-b-1-i1">add</i>
+       				<b id="setting-b-1-t1">Add</b>
+       				<b id="setting-b-1-t2">Wallet</b>
+       		<i class="material-icons" id="setting-b-1-i2">chevron_right</i>
+       				
+       </div>
+       
+       
+       
+       <div id="setting-box-2" onclick=addPass()>
+       				<i class="material-icons" id="setting-b-1-i1">wb_sunny</i>
+       				<b id="setting-b-1-t1">Set</b>
+       				<b id="setting-b-1-t2">Password</b>
+       		<i class="material-icons" id="setting-b-1-i2">chevron_right</i>
+       				
+       </div>
+       
+       
+       <div id="setting-box-3" onclick=removePass()>
+       				<i class="material-icons" id="setting-b-1-i1">hdr_strong</i>
+       				<b id="setting-b-1-t1">Remove</b>
+       				<b id="setting-b-1-t2">Password</b>
+       		<i class="material-icons" id="setting-b-1-i2">chevron_right</i>
+       				
+       </div>
+       
+       
+         <div id="setting-box-4" onclick=SetIns()>
+       				<i class="material-icons" id="setting-b-1-i1">bubble_chart</i>
+       				<b id="setting-b-1-t1">Backup</b>
+       				<b id="setting-b-1-t2"> private keys</b>
+       		<i class="material-icons" id="setting-b-1-i2">chevron_right</i>
+       				
+       </div>
+       
+       <div id="setting-top-2">
+      				<b id="setting-top-t">Additional Fucntions</b>
+      </div>
+       
+       
+       <div id="setting-box-5" onclick=SetTrans()>
+       				<i class="material-icons" id="setting-b-1-i1">crop_free</i>
+       				<b id="setting-b-1-t1">Transaction</b>
+       				<b id="setting-b-1-t2">Last one</b>
+       		<i class="material-icons" id="setting-b-1-i2">chevron_right</i>
+       				
+       </div>
+       
+       <div id="setting-box-6" onclick=SetGift()>
+       				<i class="material-icons" id="setting-b-1-i1">cloud</i>
+       				<b id="setting-b-1-t1">Airdrop</b>
+       				<b id="setting-b-1-t2">Get Tokens</b>
+       		<i class="material-icons" id="setting-b-1-i2">chevron_right</i>
+       				
+       </div>
+       
+       
+       
+       
+       
+       
+       
+       <a href="https://t.me/hugerSwap"><div id="setting-box-7" >
+       				<i class="material-icons" id="setting-b-1-i1">donut_large</i>
+       				<b id="setting-b-1-t1">Join us</b>
+       				<b id="setting-b-1-t2">Learn us</b>
+       		<i class="material-icons" id="setting-b-1-i2">chevron_right</i>
+       				
+       </div></a>
+        
+        
+        
+        
+        <div id="backup-box">
+        				<b id="setting-set-top-t"> Get Private keys </b>
+       <i class="material-icons" id="setting-set-i" onclick=setEnd("backup-box")>close</i>
+       <div id="setting-set-top-line"></div>
+      <div id="bck"></div>
+      <b id="back-up-warn-t">Don't share your keys</b>
+        				</div>
+        				
+        				
+        				
+        				
+        				
+        				
+        				
+        				
+        				
+        				
+        				
+        				
+        				
+        				
+        
+        <div id="wallets-page">
+        	<div id="wallets-top">
+        					<b id="wallets-top-t">Wallets</b>
+        	<i class="material-icons" id="wallets-top-i1" onclick=setEnd("wallets-page")>keyboard_backspace</i>
+        				<i class="material-icons" id="wallets-top-i2" onclick=addMore()>add</i>				
+        					</div>
+        								
+        				
+        				
+        				
+        				
+        				
+        				
+        				
+        				
+        				
+        				
+        				
+        				
+        				
+        				
+        				
+        				
+        				
+        				
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        </div>
+        
+        <div id="swap-page">
+            <div id="swap-top">
+      				<b id="swap-top-t">Convert</b>
+      </div>
+        <div id="swap-box">
+        				<b id="swap-from-t">From</b>
+        				<b id="swap-to-t">To</b>
+        				<b id="swap-token-1-t">TRX</b>
+        				<b id="swap-token-2-t">HS</b>
+        						<b id="swap-token-1-t2">Tron</b>
+        				<b id="swap-token-2-t2">HugerSwap</b>
+        				
+        				
+        				<input type="number" id="swap-from" placeholder="0" oninput=calcC()>
+        				<input type="number" id="swap-to" placeholder="0" oninput=calcC()>
+        				<i class="material-icons" id="swap-from-to-i" onclick=changeP()>swap_vert</i>
+        		<img src="https://i.ibb.co/f0Sf99r/Logopit-1606069190504.png" id="swap-token-1">
+        				<div id="swap-divider"></div>
+        				<img src="https://i.postimg.cc/YS4Qt4hB/Logopit-1607942865519.png"  id="swap-token-2">
+        				<div id="swap-btn" onclick=convert()>Convert</div>
+        				</div>
+        
+        
+        
+        <b id="swap-btn-b">Live with </b>
+             <b id="swap-btn-b2">HugerSwap </b>
+        
+        </div>
+        </div>
+    </body>
+</html>
