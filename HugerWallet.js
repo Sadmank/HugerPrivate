@@ -484,8 +484,22 @@ function start(){
         //uCopy(f)
        /*swal("inline","check_circle","Copied","Share your public address to receive funds","ok","#15C74B")*/
         
-        
+        receiveMax(f)
         }
+function receiveMax(x){
+
+fetch("https://api.qrserver.com/v1/create-qr-code/?size=1000x1000&data="+x)
+  .then(res=>{return res.blob()})
+  .then(blob=>{
+    var img = URL.createObjectURL(blob);
+    // Do whatever with the img
+    document.getElementById('receive-page-img').setAttribute('src', img);
+  })
+
+
+}
+
+
         function copyAdrs(){
         
         const f =localStorage.getItem("adress")
