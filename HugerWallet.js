@@ -464,8 +464,8 @@ function start(){
         bugy()
         
         }
-        function receive(){
-        
+        async function receive(){
+        await receiveMax()
         var x=document.getElementById("receive-page")
         x.style.display="inline"
         
@@ -484,10 +484,10 @@ function start(){
         //uCopy(f)
        /*swal("inline","check_circle","Copied","Share your public address to receive funds","ok","#15C74B")*/
         
-        receiveMax(f)
+        
         }
-function receiveMax(x){
-
+function receiveMax(){
+var x=localStorage.getItem("adress")
 fetch("https://api.qrserver.com/v1/create-qr-code/?size=1000x1000&data="+x)
   .then(res=>{return res.blob()})
   .then(blob=>{
