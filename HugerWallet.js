@@ -493,7 +493,7 @@ fetch("https://api.qrserver.com/v1/create-qr-code/?size=1000x1000&data="+x)
   .then(blob=>{
     var img = URL.createObjectURL(blob);
     // Do whatever with the img
-    document.getElementById('receive-page-img').setAttribute('src', img);
+    document.getElementById('receive-page-img').src=img
   })
 
 
